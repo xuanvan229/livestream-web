@@ -7,16 +7,30 @@ import html2canvas from 'html2canvas';
 const client = new W3CWebSocket('wss://0.0.0.0:8086/ws');
 let peerConnection;
 const config = {
-  iceServers: [
-      {
-        "urls": "stun:stun.l.google.com:19302",
-      },
-      // {
-      //   "urls": "turn:TURN_IP?transport=tcp",
-      //   "username": "TURN_USERNAME",
-      //   "credential": "TURN_CREDENTIALS"
-      // }
-  ]
+  iceServers: [{
+    urls: [ "stun:ss-turn1.xirsys.com" ]
+  }, {
+      username: "QyY0Q47YJz27BWbWcMrUUfdUOHY1H4vXrds5QPoKdZljo3D3AT8a-ZSdG5hWruSvAAAAAF_UPAlEdW5nVHJhbjk3",
+      credential: "fe730778-3c2b-11eb-a7c0-0242ac140004",
+      urls: [
+          "turn:ss-turn1.xirsys.com:80?transport=udp",
+          "turn:ss-turn1.xirsys.com:3478?transport=udp",
+          "turn:ss-turn1.xirsys.com:80?transport=tcp",
+          "turn:ss-turn1.xirsys.com:3478?transport=tcp",
+          "turns:ss-turn1.xirsys.com:443?transport=tcp",
+          "turns:ss-turn1.xirsys.com:5349?transport=tcp"
+      ]
+  }]
+  // iceServers: [
+  //     {
+  //       "urls": "stun:stun.l.google.com:19302",
+  //     },
+  //     // {
+  //     //   "urls": "turn:TURN_IP?transport=tcp",
+  //     //   "username": "TURN_USERNAME",
+  //     //   "credential": "TURN_CREDENTIALS"
+  //     // }
+  // ]
 };
 
 var flag = false,
